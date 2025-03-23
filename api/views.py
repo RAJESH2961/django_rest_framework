@@ -7,7 +7,7 @@ from .serializers import EmployeeSerializer, StudentSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-
+from employees.filters import EmployeeFilter
 
 #custom PAgination
 # from . blogs import CustomPagination
@@ -85,6 +85,8 @@ class EmployeeViewset(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
     #Adding custom pagination
     pagination_class = CustomPagination
+    # filterset_fields = ['designation']
+    filterset_class = EmployeeFilter
 
 from blogs.models import Blog,Comment
 from blogs.serializers import BlogSerializer,CommentSerializer

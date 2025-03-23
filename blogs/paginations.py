@@ -3,8 +3,8 @@ from rest_framework.response import Response
 
 
 class CustomPagination(PageNumberPagination):
-    page_size_query_param = 'page_size'
-    page_query_param = 'page-num'
+    page_size_query_param = 'page_size' 
+    page_query_param = 'page-num' #page-num or employees the url will only change
     max_page_size = 1
 
     def get_paginated_response(self, data):
