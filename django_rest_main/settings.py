@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'api',
     'employees',
     'blogs',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -138,4 +139,9 @@ REST_FRAMEWORK ={
 REST_FRAMEWORK ={
     'DEFAULT_PAGINATION_CLASS' :'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE':3,#this specifies how many data should be present in per page
+    #Global filter
+    'DEFAULT_FILTER_BACKENDS' :['django_filters.rest_framework.DjangoFilterBackend'],
+    'SEARCH_PARAM' : 'q',
+    'ORDERING_PARAM' : 'order-by',
 }
+
