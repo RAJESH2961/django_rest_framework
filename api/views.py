@@ -9,7 +9,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from employees.filters import EmployeeFilter
 
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 #custom PAgination
 # from . blogs import CustomPagination
@@ -97,9 +97,10 @@ from rest_framework import generics, mixins
 class BlogsView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    filter_backends = [SearchFilter]
+    filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['blog_title', 'blog_body']
     # search_fields = ['^blog_title'] # Exactly starts with 
+    ordering_fields = ['id', 'blog_title']
 
 
 class CommentsView(generics.ListCreateAPIView):
