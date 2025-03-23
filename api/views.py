@@ -8,6 +8,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 
+
+#custom PAgination
+# from . blogs import CustomPagination
+from blogs.paginations import CustomPagination
 # Create your views here.
 
 # def studentsView(request):
@@ -79,6 +83,8 @@ class EmployeeViewset(viewsets.ModelViewSet):
 
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+    #Adding custom pagination
+    pagination_class = CustomPagination
 
 from blogs.models import Blog,Comment
 from blogs.serializers import BlogSerializer,CommentSerializer
